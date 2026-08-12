@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Modern 2 Bedroom | HomeLocateKE</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f6f8;
+    color: #111827;
+}
+
+/* HEADER */
+header {
+    background: #0b0f19;
+    color: white;
+    padding: 15px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #d4af37;
+}
+
+.back {
+    color: white;
+    text-decoration: none;
+}
+
+/* MAIN */
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    height: 500px;
+}
+
+.gallery-main {
+    height: 100%;
+}
+
+.gallery-main img,
+.gallery-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.gallery-side {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+/* PROPERTY */
+.property {
+    background: white;
+    margin-top: 25px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.verified {
+    display: inline-block;
+    background: #0b0f19;
+    color: #d4af37;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.location {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.price {
+    color: #b38b16;
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.price small {
+    color: #777;
+    font-size: 14px;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.detail {
+    background: #f1f2f4;
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+button,
+.btn {
+    border: none;
+    padding: 14px 22px;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.viewing {
+    background: #d4af37;
+    color: #111827;
+}
+
+.directions {
+    background: #0b0f19;
+    color: white;
+}
+
+/* CONTENT */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.box {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.box h2 {
+    margin-bottom: 15px;
+}
+
+.box p {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* AMENITIES */
+.amenities {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.amenity {
+    background: #f5f6f8;
+    padding: 13px;
+    border-radius: 8px;
+}
+
+/* MAP */
+.map {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    border-radius: 12px;
+}
+
+/* SIDEBAR */
+.contact-box {
+    background: #0b0f19;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    position: sticky;
+    top: 20px;
+}
+
+.contact-box h2 {
+    margin-bottom: 15px;
+}
+
+.contact-box p {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.contact-btn {
+    display: block;
+    text-align: center;
+    background: #d4af37;
+    color: #111827;
+    padding: 14px;
+    margin-top: 20px;
+    border-radius: 9px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 50px;
+    background: #060911;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+footer p {
+    color: #9ca3af;
+    margin-top: 8px;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.submit {
+    width: 100%;
+    background: #d4af37;
+    color: #111827;
+}
+
+.close {
+    background: #eee;
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* MOBILE */
+@media(max-width: 800px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .gallery-main {
+        height: 300px;
+    }
+
+    .gallery-side {
+        height: 180px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-box {
+        position: static;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        HomeLocate<span>KE</span>
+    </div>
+
+    <a href="index.html" class="back">
+        ← Back
+    </a>
+
+</header>
+
+
+<main class="container">
+
+    <!-- PHOTO GALLERY -->
+
+    <div class="gallery">
+
+        <div class="gallery-main">
+
+            <img
+            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=90"
+            alt="Apartment">
+
+        </div>
+
+        <div class="gallery-side">
+
+            <img
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=90"
+            alt="Apartment interior">
+
+            <img
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=90"
+            alt="Apartment living room">
+
+        </div>
+
+    </div>
+
+
+    <!-- PROPERTY INFORMATION -->
+
+    <section class="property">
+
+        <div class="verified">
+            ✓ VERIFIED PROPERTY
+        </div>
+
+        <h1>Modern 2 Bedroom Apartment</h1>
+
+        <div class="location">
+            📍 Kilimani, Nairobi, Kenya
+        </div>
+
+        <div class="price">
+            KSh 35,000
+            <small>/ month</small>
+        </div>
+
+
+        <div class="details">
+
+            <div class="detail">🛏 2 Bedrooms</div>
+
+            <div class="detail">🛁 2 Bathrooms</div>
+
+            <div class="detail">🚗 Parking</div>
+
+            <div class="detail">📶 Wi-Fi</div>
+
+            <div class="detail">🔐 Security</div>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <button
+            class="viewing"
+            onclick="openViewing()">
+                📅 Book Apartment Viewing
+            </button>
+
+            <a
+            class="btn directions"
+            href="https://www.google.com/maps/search/?api=1&query=Kilimani,Nairobi,Kenya"
+            target="_blank">
+                📍 Get Directions
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <div class="content-grid">
+
+
+        <div>
+
+            <!-- DESCRIPTION -->
+
+            <section class="box">
+
+                <h2>About This Apartment</h2>
+
+                <p>
+                    Beautiful modern two-bedroom apartment located
+                    in a convenient and secure part of Kilimani,
+                    Nairobi. The property offers spacious rooms,
+                    modern finishes, reliable security and convenient
+                    access to shopping centres, schools, restaurants
+                    and major roads.
+                </p>
+
+            </section>
+
+
+            <!-- AMENITIES -->
+
+            <section class="box">
+
+                <h2>Amenities</h2>
+
+                <div class="amenities">
+
+                    <div class="amenity">✓ 24/7 Security</div>
+
+                    <div class="amenity">✓ Parking</div>
+
+                    <div class="amenity">✓ Water Available</div>
+
+                    <div class="amenity">✓ Wi-Fi</div>
+
+                    <div class="amenity">✓ Balcony</div>
+
+                    <div class="amenity">✓ CCTV</div>
+
+                    <div class="amenity">✓ Lift</div>
+
+                    <div class="amenity">✓ Backup Power</div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MAP -->
+
+            <section class="box">
+
+                <h2>📍 Property Location</h2>
+
+                <p style="margin-bottom:15px;">
+                    Kilimani, Nairobi, Kenya
+                </p>
+
+                <iframe
+                    class="map"
+                    src="https://www.google.com/maps?q=Kilimani,Nairobi,Kenya&output=embed"
+                    loading="lazy">
+                </iframe>
+
+                <br><br>
+
+                <a
+                class="btn directions"
+                href="https://www.google.com/maps/search/?api=1&query=Kilimani,Nairobi,Kenya"
+                target="_blank">
+                    🧭 Open Google Maps
+                </a>
+
+            </section>
+
+        </div>
+
+
+        <!-- SIDEBAR -->
+
+        <aside>
+
+            <div class="contact-box">
+
+                <h2>Want to View?</h2>
+
+                <p>
+                    Request a viewing and our HomeLocateKE
+                    team can guide you to the property.
+                </p>
+
+                <a
+                href="javascript:void(0)"
+                onclick="openViewing()"
+                class="contact-btn">
+                    Request Viewing
+                </a>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+<!-- VIEWING MODAL -->
+
+<div class="modal" id="viewingModal">
+
+    <div class="modal-content">
+
+        <h2>Book Your Viewing</h2>
+
+        <p>
+            Enter your details and preferred viewing date.
+        </p>
+
+        <input
+        type="text"
+        id="name"
+        placeholder="Full Name">
+
+        <input
+        type="tel"
+        id="phone"
+        placeholder="Phone Number">
+
+        <input
+        type="date"
+        id="date">
+
+        <select id="time">
+
+            <option value="">
+                Preferred Time
+            </option>
+
+            <option>9:00 AM</option>
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 PM</option>
+            <option>2:00 PM</option>
+            <option>3:00 PM</option>
+            <option>4:00 PM</option>
+
+        </select>
+
+        <button
+        class="submit"
+        onclick="submitViewing()">
+            Submit Viewing Request
+        </button>
+
+        <button
+        class="close"
+        onclick="closeViewing()">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <strong>HomeLocateKE</strong>
+
+    <p>
+        Find. View. Move In.
+    </p>
+
+    <p>
+        © 2026 HomeLocateKE
+    </p>
+
+</footer>
+
+
+<script>
+
+function openViewing() {
+
+    document.getElementById("viewingModal")
+    .style.display = "flex";
+
+}
+
+function closeViewing() {
+
+    document.getElementById("viewingModal")
+    .style.display = "none";
+
+}
+
+function submitViewing() {
+
+    const name =
+        document.getElementById("name").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const date =
+        document.getElementById("date").value;
+
+    const time =
+        document.getElementById("time").value;
+
+    if (!name || !phone || !date || !time) {
+
+        alert("Please fill in all the details.");
+
+        return;
+
+    }
+
+    alert(
+        "Viewing request received! " +
+        "HomeLocateKE will contact you."
+    );
+
+    closeViewing();
+
+}
+
+</script>
+
+</body>
+</html>

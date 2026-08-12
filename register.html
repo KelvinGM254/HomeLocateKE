@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account | HomeLocateKE</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(5,8,15,.88),rgba(5,8,15,.92)),
+    url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:450px;
+}
+
+.logo{
+    text-align:center;
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.logo span{
+    color:#d4af37;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+h1{
+    font-size:28px;
+    margin-bottom:8px;
+    color:#111827;
+}
+
+.subtitle{
+    color:#6b7280;
+    margin-bottom:25px;
+    line-height:1.5;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:9px;
+    margin-bottom:17px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#d4af37;
+}
+
+button{
+    width:100%;
+    border:none;
+    padding:15px;
+    background:#d4af37;
+    color:#111827;
+    font-weight:bold;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.login{
+    text-align:center;
+    margin-top:20px;
+    color:#6b7280;
+    font-size:14px;
+}
+
+.login a{
+    color:#a17b0d;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        HomeLocate<span>KE</span>
+    </div>
+
+    <div class="card">
+
+        <h1>Create Account</h1>
+
+        <p class="subtitle">
+            Create your HomeLocateKE tenant account
+            and start finding your next home.
+        </p>
+
+        <form onsubmit="register(event)">
+
+            <label>Full Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label>Phone Number</label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="07XXXXXXXX"
+                required
+            >
+
+            <label>Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                minlength="6"
+                required
+            >
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <div class="login">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back">
+        ← Back to HomeLocateKE
+    </a>
+
+</div>
+
+<script>
+
+function register(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const email =
+        document.getElementById("email").value;
+
+    const password =
+        document.getElementById("password").value;
+
+    const user = {
+        name:name,
+        phone:phone,
+        email:email,
+        password:password,
+        activated:false
+    };
+
+    localStorage.setItem(
+        "homeLocateUser",
+        JSON.stringify(user)
+    );
+
+    alert(
+        "Account created successfully!"
+    );
+
+    window.location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>

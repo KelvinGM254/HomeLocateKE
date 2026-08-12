@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | HomeLocateKE</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(5,8,15,.88),rgba(5,8,15,.92)),
+    url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:430px;
+}
+
+.logo{
+    text-align:center;
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.logo span{
+    color:#d4af37;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+}
+
+h1{
+    color:#111827;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:9px;
+    margin-bottom:18px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:9px;
+    background:#d4af37;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.register{
+    text-align:center;
+    margin-top:20px;
+    color:#666;
+    font-size:14px;
+}
+
+.register a{
+    color:#a17b0d;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    color:white;
+    margin-top:20px;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        HomeLocate<span>KE</span>
+    </div>
+
+    <div class="card">
+
+        <h1>Welcome Back</h1>
+
+        <p class="subtitle">
+            Login to your HomeLocateKE account.
+        </p>
+
+        <form onsubmit="login(event)">
+
+            <label>Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Your password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <div class="register">
+            Don't have an account?
+            <a href="register.html">
+                Create Account
+            </a>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back">
+        ← Back to HomeLocateKE
+    </a>
+
+</div>
+
+<script>
+
+function login(event){
+
+    event.preventDefault();
+
+    const email =
+        document.getElementById("email").value;
+
+    const password =
+        document.getElementById("password").value;
+
+    const stored =
+        localStorage.getItem("homeLocateUser");
+
+    if(!stored){
+
+        alert(
+            "No account found. Please register first."
+        );
+
+        return;
+    }
+
+    const user = JSON.parse(stored);
+
+    if(
+        email === user.email &&
+        password === user.password
+    ){
+
+        localStorage.setItem(
+            "homeLocateLoggedIn",
+            "true"
+        );
+
+        window.location.href =
+            "dashboard.html";
+
+    }else{
+
+        alert(
+            "Incorrect email or password."
+        );
+
+    }
+}
+
+</script>
+
+</body>
+</html>
